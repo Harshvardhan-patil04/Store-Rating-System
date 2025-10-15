@@ -9,7 +9,6 @@ const api = axios.create({
     }
 });
 
-// Add token to requests
 api.interceptors.request.use(
     (config) => {
         const token = localStorage.getItem('token');
@@ -23,7 +22,6 @@ api.interceptors.request.use(
     }
 );
 
-// Handle responses
 api.interceptors.response.use(
     (response) => response,
     (error) => {
@@ -36,14 +34,11 @@ api.interceptors.response.use(
     }
 );
 
-// Auth APIs
 export const authAPI = {
     signup: (data) => api.post('/auth/signup', data),
     login: (data) => api.post('/auth/login', data),
     changePassword: (data) => api.post('/auth/change-password', data)
 };
-
-// Admin APIs
 
 export const adminAPI = {
     getDashboardStats: () => api.get('/admin/dashboard'),
@@ -53,13 +48,12 @@ export const adminAPI = {
     getUsers: (params) => api.get('/admin/users', { params }),
     getUserDetails: (id) => api.get(`/admin/users/${id}`)
 };
-// User APIs
+
 export const userAPI = {
     getStores: (params) => api.get('/user/stores', { params }),
     submitRating: (data) => api.post('/user/ratings', data)
 };
 
-// Store APIs
 export const storeAPI = {
     getDashboard: () => api.get('/store/dashboard')
 };
