@@ -183,4 +183,80 @@ store-rating-system/
   cd frontend
   npm install axios react-router-dom
 
+  *Frontend will run on:** `http://localhost:3000`
+
+---
+
+## 🗄️ Database Schema
+
+### Tables
+
+#### 1. **users**
+| Column | Type | Constraints |
+|--------|------|-------------|
+| id | INT | PRIMARY KEY, AUTO_INCREMENT |
+| name | VARCHAR(60) | NOT NULL |
+| email | VARCHAR(255) | UNIQUE, NOT NULL |
+| password | VARCHAR(255) | NOT NULL |
+| address | VARCHAR(400) | NULL |
+| role | ENUM | 'admin', 'user', 'store' |
+| created_at | TIMESTAMP | DEFAULT CURRENT_TIMESTAMP |
+| updated_at | TIMESTAMP | ON UPDATE CURRENT_TIMESTAMP |
+
+#### 2. **stores**
+| Column | Type | Constraints |
+|--------|------|-------------|
+| id | INT | PRIMARY KEY, AUTO_INCREMENT |
+| user_id | INT | UNIQUE, FOREIGN KEY (users.id) |
+| name | VARCHAR(60) | NOT NULL |
+| email | VARCHAR(255) | UNIQUE, NOT NULL |
+| address | VARCHAR(400) | NULL |
+| created_at | TIMESTAMP | DEFAULT CURRENT_TIMESTAMP |
+| updated_at | TIMESTAMP | ON UPDATE CURRENT_TIMESTAMP |
+
+#### 3. **ratings**
+| Column | Type | Constraints |
+|--------|------|-------------|
+| id | INT | PRIMARY KEY, AUTO_INCREMENT |
+| user_id | INT | FOREIGN KEY (users.id) |
+| store_id | INT | FOREIGN KEY (stores.id) |
+| rating | INT | CHECK (1-5) |
+| created_at | TIMESTAMP | DEFAULT CURRENT_TIMESTAMP |
+| updated_at | TIMESTAMP | ON UPDATE CURRENT_TIMESTAMP |
+
+### Relationships
+- **users (1) → stores (1)** - One user can own one store
+- **users (1) → ratings (N)** - One user can submit many ratings
+- **stores (1) → ratings (N)** - One store can receive many ratings
+## 🔌 API Endpoints
+
+### Authentication Routes (`/api/auth`)
+| Method | Endpoint | Description | Auth Required |
+|--------|----------|-------------|---------------|
+| POST | `/signup` | Register new user | No |
+| POST | `/login` | User login | No |
+| POST | `/change-password` | Change password | Yes |
+
+### Admin Routes (`/api/admin`)
+| Method | Endpoint | Description | Auth Required |
+|--------|----------|-------------|---------------|
+| GET | `/dashboard` | Get dashboard stats | Admin |
+| POST | `/users` | Add new user | Admin |
+| POST | `/stores` | Add new store | Admin |
+| GET | `/stores` | Get all stores with filters | Admin |
+| GET | `/users` | Get all users with filters | Admin |
+| GET | `/users/:id` | Get user details | Admin |
+
+### User Routes (`/api/user`)
+| Method | Endpoint | Description | Auth Required |
+|--------|----------|-------------|---------------|
+| GET | `/stores` | Get all stores with ratings | User |
+| POST | `/ratings` | Submit or update rating | User |
+
+### Store Routes (`/api/store`)
+| Method | Endpoint | Description | Auth Required |
+|--------|----------|-------------|---------------|
+| GET | `/dashboard` | Get store dashboard | Store Owner |
+
+
   
