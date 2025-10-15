@@ -156,7 +156,7 @@ store-rating-system/
 
 ### 1️⃣ Clone the Repository
 
-  git clone https://github.com/yourusername/store-rating-app.git
+  git clone https://github.com/Harshvardhan-patil04/Store-Rating-System/
   cd store-rating-app
   
 2️⃣ Setup Backend
