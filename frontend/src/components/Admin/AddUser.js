@@ -6,11 +6,11 @@ import { validateName, validateEmail, validatePassword, validateAddress } from '
 const AddUser = () => {
     const user = JSON.parse(localStorage.getItem('user'));
     const [formData, setFormData] = useState({
-name: '',
-email: '',
-password: '',
-address: '',
-role: 'user'
+    name: '',
+    email: '',
+    password: '',
+    address: '',
+    role: 'user'
 });
 const [errors, setErrors] = useState({});
 const [loading, setLoading] = useState(false);

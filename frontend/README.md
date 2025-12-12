@@ -68,3 +68,58 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+## 🔌 API Documentation
+
+### Postman Collection
+Complete API documentation is available in Postman format.
+
+**Location:** `docs/Store_Rating_System.postman_collection.json`
+
+**Import Instructions:**
+1. Open Postman
+2. Click **Import** → **Upload Files**
+3. Select the collection JSON file
+4. Create environment with variables:
+   - `base_url`: `http://localhost:5000`
+   - `token`: (auto-populated after login)
+
+**Detailed API Documentation:** See [docs/API_DOCUMENTATION.md](docs/API_DOCUMENTATION.md)
+
+###  API Reference
+
+
+## API Endpoints Overview
+
+### 🔐 Authentication (`/api/auth`)
+
+| Method | Endpoint           | Description       | Auth Required |
+|--------|--------------------|-------------------|---------------|
+| POST   | `/signup`          | Register new user | No            |
+| POST   | `/login`           | User login        | No            |
+| POST   | `/change-password` | Change password   | Yes           |
+
+### 👨‍💼 Admin (`/api/admin`)
+
+| Method | Endpoint     | Description         | Auth Required |
+|--------|--------------|---------------------|---------------|
+| GET    | `/dashboard` | Get dashboard stats | Admin         |
+| POST   | `/users`     | Add new user        | Admin         |
+| POST   | `/stores`    | Add new store       | Admin         |
+| GET    | `/stores`    | Get all stores      | Admin         |
+| GET    | `/users`     | Get all users       | Admin         |
+| GET    | `/users/:id` | Get user details    | Admin         |
+
+### 👤 User (`/api/user`)
+
+| Method | Endpoint  | Description                 | Auth Required |
+|--------|-----------|-----------------------------|---------------|
+| GET    | `/stores` | Get all stores with ratings | User          |
+| POST   | `/ratings`| Submit or update rating     | User          |
+
+### 🏪 Store Owner (`/api/store`)
+
+| Method | Endpoint     | Description         | Auth Required |
+|--------|--------------|---------------------|---------------|
+| GET    | `/dashboard` | Get store dashboard | Store Owner   |
