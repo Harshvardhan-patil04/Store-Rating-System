@@ -122,35 +122,7 @@ store-rating-system/
 │   ├── server.js
 │   └── package.json
 │
-└── frontend/
-    ├── src/
-    │   ├── components/
-    │   │   ├── Admin/
-    │   │   │   ├── AdminDashboard.js
-    │   │   │   ├── AddUser.js
-    │   │   │   ├── StoreList.js
-    │   │   │   └── UserList.js
-    │   │   ├── User/
-    │   │   │   ├── UserDashboard.js
-    │   │   │   ├── StoreListUser.js
-    │   │   │   └── ChangePassword.js
-    │   │   ├── Store/
-    │   │   │   ├── StoreDashboard.js
-    │   │   │   └── RatingsList.js
-    │   │   ├── Auth/
-    │   │   │   ├── Login.js
-    │   │   │   └── Signup.js
-    │   │   └── Common/
-    │   │       ├── Navbar.js
-    │   │       └── PrivateRoute.js
-    │   ├── services/
-    │   │   └── api.js
-    │   ├── utils/
-    │   │   └── validation.js
-    │   ├── App.js
-    │   ├── App.css
-    │   └── index.js
-    └── package.json
+
 
 ## ⚙️ Installation and Setup
 
