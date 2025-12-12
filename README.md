@@ -96,34 +96,6 @@ All data, including users, stores, and ratings, is stored securely in a MySQL da
 - **Frontend and backend** follow best development practices.  
 
 ---
-
-## 🏗️ Project Structure
-
-store-rating-system/
-│
-├── backend/
-│   ├── config/
-│   │   └── db.js
-│   ├── middleware/
-│   │   └── auth.js
-│   ├── routes/
-│   │   ├── auth.js
-│   │   ├── admin.js
-│   │   ├── user.js
-│   │   └── store.js
-│   ├── controllers/
-│   │   ├── authController.js
-│   │   ├── adminController.js
-│   │   ├── userController.js
-│   │   └── storeController.js
-│   ├── validators/
-│   │   └── validators.js
-│   ├── .env
-│   ├── server.js
-│   └── package.json
-│
-
-
 ## ⚙️ Installation and Setup
 
 ### 1️⃣ Clone the Repository
